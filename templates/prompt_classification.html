@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Prompt Classification{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Prompt Classification</h1>
+
+    <!-- Vertical List of Prompt Items -->
+    <div class="prompt-list">
+        {% for item in prompts %}
+        <!-- Conditional to check if the prompt is malicious -->
+        <div class="prompt-item {{'malicious' if item.classification == 'Malicious' else ''}}">
+            <h2>{{ item.prompt }}</h2>
+            <p>Classification: <strong>{{ item.classification }}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
